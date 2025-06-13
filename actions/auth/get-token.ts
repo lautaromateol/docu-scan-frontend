@@ -6,5 +6,5 @@ export async function getToken() {
 
   const token = cookiesStore.get("token")
 
-  return token?.value.slice(1, -1)
+  return token?.value
 }

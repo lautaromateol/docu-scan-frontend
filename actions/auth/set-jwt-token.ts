@@ -14,7 +14,7 @@ export async function setJwtToken(token: string) {
     const cookiesStore = await cookies();
     cookiesStore.set({
       name: "token",
-      value: JSON.stringify(token),
+      value: token,
       httpOnly: true,
       expires: expiresDate,
     });
