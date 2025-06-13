@@ -18,6 +18,18 @@ export async function setJwtToken(token: string) {
       httpOnly: true,
       expires: expiresDate,
     });
+
+    const user = {
+      id: payload.sub,
+      email: payload.email
+    }
+
+    cookiesStore.set({
+      name: "user",
+      value: JSON.stringify(user),
+      httpOnly: true,
+      expires: expiresDate
+    })
   } catch (error) {
     throw new Error("There was an error signing in.");
   }
