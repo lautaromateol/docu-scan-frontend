@@ -1,4 +1,6 @@
 "use client";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -14,8 +16,7 @@ import {
   CreateWorkspace,
   CreateWorkspaceObject,
 } from "@/features/workspaces/types";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useOpenCreateWorkspace } from "../hooks/use-open-create-workspace";
 
 export function CreateWorkspaceForm() {
   const form = useForm({
@@ -25,11 +26,15 @@ export function CreateWorkspaceForm() {
     },
   });
 
+  const { close } = useOpenCreateWorkspace()
+
   const { createWorkspace, isCreatingWorkspace, error, isError } =
     useCreateWorkspace();
 
   function onSubmit(workspace: CreateWorkspace) {
-    createWorkspace(workspace);
+    createWorkspace(workspace, {
+      onSuccess: () => close()
+    });
   }
 
   return (
