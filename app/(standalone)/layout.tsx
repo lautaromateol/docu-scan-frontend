@@ -9,13 +9,17 @@ export default async function StandaloneLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { token } = await getToken();
+  const payload = await getToken();
 
-  if (!token) {
+  if (!payload) {
     redirect("/sign-in");
   }
 
   const user = await getUser();
+
+  if (!user) {
+    redirect("/sign-in");
+  }
 
   return (
     <main className="min-h-screen">
