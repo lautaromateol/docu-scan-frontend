@@ -3,25 +3,23 @@ import { getToken } from "@/actions/auth/get-token";
 import { API_URL } from "@/lib/constants";
 import { Workspace } from "../types";
 
-type ResponseType = {
-  success: boolean;
-  statusCode: number;
-  workspaces: Workspace[];
-}
+export async function getWorkspaces(): Promise<Workspace[]> {
+  const payload = await getToken();
 
-export async function getWorkspaces(): Promise<ResponseType> {
-  const { token, user } = await getToken();
+  if (!payload) return [];
 
   const response = await fetch(`${API_URL}/workspaces`, {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${payload.token}`,
     },
     next: {
-      tags: [`workspaces-${user.id}`],
+      tags: [`workspaces-${payload.user.id}`],
     },
   });
 
   const data = await response.json();
 
-  return data;
+  if (data.statusCode === 200) {
+    return data.workspaces;
+  } else return [];
 }
