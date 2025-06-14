@@ -1,3 +1,4 @@
+import { Separator } from "@/components/ui/separator";
 import { getWorkspace } from "@/features/workspaces/actions/get-workspace";
 import { DangerZone } from "@/features/workspaces/components/danger-zone";
 import { InviteMembers } from "@/features/workspaces/components/invite-members";
@@ -19,6 +20,7 @@ export default async function WorkspaceSettingsPage({ params }: any) {
           Update your workspace name, invite members and more.
         </p>
       </div>
+      <Separator className="w-full" />
       <UpdateWorkspace workspace={workspace} /> 
       <InviteMembers workspace={workspace} />
       <DangerZone workspace={workspace} />
