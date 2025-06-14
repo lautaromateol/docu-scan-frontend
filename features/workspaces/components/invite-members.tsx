@@ -18,7 +18,7 @@ export function InviteMembers({ workspace }: InviteMembersProps) {
   }
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 p-4 bg-slate-50 rounded">
       <div className="space-y-0.5">
         <h2 className="text-xl">Invite members</h2>
         <p className="text-sm font-light">

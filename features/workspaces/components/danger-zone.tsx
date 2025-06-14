@@ -3,7 +3,7 @@ import { DeleteWorkspaceForm } from "./delete-workspace-form";
 
 export function DangerZone({ workspace }: { workspace: Workspace }) {
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 p-4 bg-slate-50 rounded">
       <div className="space-y-0.5">
         <h2 className="text-xl text-destructive">Danger Zone</h2>
         <p className="text-sm font-light text-destructive">
