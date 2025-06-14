@@ -5,13 +5,17 @@ import { API_URL } from "@/lib/constants";
 import { revalidateTag } from "next/cache";
 
 export async function createWorkspace(workspace: CreateWorkspace) {
-  const { token, user } = await getToken();
+  const payload = await getToken();
+
+  if (!payload) {
+    return { message: "Unauthorized.", statusCode: 401 };
+  }
 
   const response = await fetch(`${API_URL}/workspaces`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${payload.token}`,
     },
     body: JSON.stringify(workspace),
   });
@@ -19,7 +23,7 @@ export async function createWorkspace(workspace: CreateWorkspace) {
   const data = await response.json();
 
   if (data.statusCode === 201) {
-    revalidateTag(`workspaces-${user.id}`);
+    revalidateTag(`workspaces-${payload.user.id}`);
   }
 
   return data;
