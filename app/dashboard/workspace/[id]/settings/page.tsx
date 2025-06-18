@@ -13,7 +13,7 @@ export default async function WorkspaceSettingsPage({ params }: any) {
   }
 
   return (
-    <div className="rounded space-y-8">
+    <div className="space-y-6">
       <div className="space-y-0.5">
         <h1 className="text-2xl font-semibold">Settings</h1>
         <p className="text-base font-light">
