@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { CreateWorkspaceModal } from "@/features/workspaces/components/create-workspace-modal";
+import { UploadContractModal } from "@/features/contracts/components/upload-contract-modal";
 
 export function ModalsProvider() {
   const [isMounted, setIsMounted] = useState(false);
@@ -13,6 +14,7 @@ export function ModalsProvider() {
     return (
       <>
         <CreateWorkspaceModal />
+        <UploadContractModal />
       </>
     );
   }
