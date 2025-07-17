@@ -4,6 +4,7 @@ import { getUser } from "@/features/users/actions/get-user";
 import { getWorkspaces } from "@/features/workspaces/actions/get-workspaces";
 import { CreateWorkspaceButton } from "@/features/workspaces/components/create-workspace-button";
 import { WorkspaceSelector } from "@/features/workspaces/components/workspace-selector";
+import { UploadContractButton } from "@/features/contracts/components/upload-contract-button";
 
 export async function Navbar() {
   const user = await getUser();
@@ -17,6 +18,7 @@ export async function Navbar() {
     <header className="h-14 p-4 flex items-center justify-end border-b shadow-xs">
       <div className="flex items-center gap-x-6">
         <div className="flex items-center gap-x-0.5">
+          <UploadContractButton />
           <CreateWorkspaceButton />
           <WorkspaceSelector workspaces={workspaces} />
         </div>
