@@ -1,18 +1,32 @@
 "use server";
-
+import { getToken } from "@/actions/auth/get-token";
 import { API_URL } from "@/lib/constants";
 
-export async function uploadContract(file: File) {
+export async function uploadContract({
+  file,
+  workspaceId,
+}: {
+  file: File;
+  workspaceId: string;
+}) {
+  const payload = await getToken();
 
-  const formData = new FormData()
-  formData.append("file", file)
+  if (!payload) {
+    return { message: "Unauthorized.", statusCode: 401 };
+  }
 
-  const response = await fetch(`${API_URL}/contracts`, {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const response = await fetch(`${API_URL}/contracts/${workspaceId}`, {
     method: "POST",
-    body: formData
-  })
+    body: formData,
+    headers: {
+      Authorization: `Bearer ${payload.token}`,
+    },
+  });
 
-  const data = await response.json()
+  const data = await response.json();
 
   return data;
 }
