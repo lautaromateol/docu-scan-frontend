@@ -1,5 +1,5 @@
 import { Contract } from "../types";
-import { ContractCard } from "./contract";
+import { ContractCard } from "./contract-card";
 
 export function Contracts({ contracts }: { contracts: Contract[] }) {
   return <div className="space-y-2">
