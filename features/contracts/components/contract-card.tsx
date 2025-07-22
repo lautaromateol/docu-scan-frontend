@@ -1,11 +1,16 @@
-import { Calendar, Eye, FileText, MapPin, Pen, User } from "lucide-react";
+"use client";
+import Link from "next/link";
 import { format, formatDistanceToNow } from "date-fns";
+import { Calendar, Eye, FileText, MapPin, Pen, User } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Contract } from "../types";
 
 export function ContractCard({ contract }: { contract: Contract }) {
+  const workspaceId = useWorkspaceId();
+
   return (
     <div className="rounded p-6 shadow space-y-6 border">
       <div className="flex items-center justify-between">
@@ -38,10 +43,14 @@ export function ContractCard({ contract }: { contract: Contract }) {
             </Badge>
           </div>
         </div>
-        <Button variant="secondary">
-          <Eye />
-          View in detail
-        </Button>
+        <Link
+          href={`/dashboard/workspace/${workspaceId}/contracts/${contract.id}`}
+        >
+          <Button variant="secondary">
+            <Eye />
+            View in detail
+          </Button>
+        </Link>
       </div>
       <div className="rounded bg-slate-50 border border-slate-200 shadow p-4">
         <p className="text-base font-light">{contract.descriptionSummary}</p>
@@ -86,10 +95,10 @@ export function ContractCard({ contract }: { contract: Contract }) {
               <User className="text-purple-700" />
             </div>
             <div className="space-y-0.5">
-              <p className="text-xs font-medium text-slate-500">Involved parties</p>
-              <p className="text-sm font-medium">
-               {contract.parties?.length}
+              <p className="text-xs font-medium text-slate-500">
+                Involved parties
               </p>
+              <p className="text-sm font-medium">{contract.parties?.length}</p>
             </div>
           </div>
         </div>
@@ -110,9 +119,13 @@ export function ContractCard({ contract }: { contract: Contract }) {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-2">
           <MapPin className="text-indigo-700" />
-          <p className="text-sm font-semibold text-slate-600">{contract.jurisdiction}</p>
+          <p className="text-sm font-semibold text-slate-600">
+            {contract.jurisdiction}
+          </p>
         </div>
-        <p className="text-sm">Created {formatDistanceToNow(contract.createdAt, { addSuffix: true })}</p>
+        <p className="text-sm">
+          Created {formatDistanceToNow(contract.createdAt, { addSuffix: true })}
+        </p>
       </div>
     </div>
   );
