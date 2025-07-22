@@ -1,11 +1,13 @@
 export type ContractParty = {
+  id: string
   name: string
   identifier?: string | null
   role: string
 }
 
 export type Obligation = {
-  partyName: string
+  id: string;
+  party: ContractParty
   description: string
   type: 'PRIMARY' | 'ACCESSORY' | 'CONDITIONAL' | 'RECURRING'
   dueDate?: string | null // ISO date string
@@ -13,18 +15,21 @@ export type Obligation = {
 }
 
 export type TerminationClause = {
+  id: string;
   description: string
   cause?: string | null
   noticePeriodDays?: number | null
 }
 
 export type ContractDeadline = {
+  id: string;
   description: string
   date: string // ISO date string
   type: string
 }
 
 export type ContractClause = {
+  id: string;
   title: string
   bodyText: string
   clauseType: 'GENERAL' | 'CONFIDENTIALITY' | 'PENALTY' | 'JURISDICTION' | 'OTHER'
