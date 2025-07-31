@@ -8,7 +8,8 @@ export type Member = {
   role: Role;
   userId: string;
   workspaceId: string;
-  user: User
+  user: User;
+  createdAt: Date
 }
 
 type User = {
