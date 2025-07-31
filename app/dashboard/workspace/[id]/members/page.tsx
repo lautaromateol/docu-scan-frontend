@@ -1,6 +1,7 @@
 import { Separator } from "@/components/ui/separator";
 import { getMembers } from "@/features/members/actions/get-members";
 import { Members } from "@/features/members/components/members";
+import { Users } from "lucide-react";
 
 export default async function MembersPage({ params }: any) {
   const { id } = await params;
@@ -8,14 +9,16 @@ export default async function MembersPage({ params }: any) {
   const members = await getMembers(id);
 
   return (
-    <div className="space-y-8">
-      <div className="space-y-0.5">
-        <h1 className="text-2xl font-semibold">Members</h1>
-        <p className="text-base font-light">
-          Review and manage the members of your workspace.
+    <div className="space-y-6">
+      <div className="flex flex-col items-center space-y-3 mx-auto w-1/2">
+        <div className="rounded-lg shadow-md p-4 bg-gradient-to-r from-indigo-700 to-indigo-900 w-auto">
+          <Users className="text-white" />
+        </div>
+        <h1 className="text-3xl font-bold">Workspace Members</h1>
+        <p className="text-xl text-gray-600 text-center">
+          Manage your workspace team members, and configure roles.
         </p>
       </div>
-      <Separator />
       <Members members={members} />
     </div>
   );
