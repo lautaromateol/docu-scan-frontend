@@ -1,3 +1,5 @@
+import { Workspace } from "@/features/workspaces/types"
+
 export type ContractParty = {
   id: string
   name: string
@@ -48,6 +50,7 @@ export type Contract = {
   status?: 'DRAFT' | 'SIGNED' | 'EXPIRED' | 'TERMINATED'
   createdAt: Date
 
+  workspace: Workspace
   parties?: ContractParty[]
   obligations?: Obligation[]
   terminationClauses?: TerminationClause[]
