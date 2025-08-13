@@ -12,7 +12,7 @@ export function ContractCard({ contract }: { contract: Contract }) {
   const workspaceId = useWorkspaceId();
 
   return (
-    <div className="rounded p-6 shadow space-y-6 border">
+    <div className="p-6 space-y-6 bg-white/70 backdrop-blur-sm rounded-xl border border-indigo-100 shadow-sm">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-y-2">
           <div className="flex items-center gap-x-2">
