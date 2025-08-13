@@ -1,12 +1,17 @@
 "use server";
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import { cookies } from "next/headers";
+
+interface token extends JwtPayload {
+  exp: number;
+  email: string
+}
 
 export async function setJwtToken(token: string) {
   const SECRET = process.env.JWT_SECRET!;
 
   try {
-    const payload = jwt.verify(token, SECRET);
+    const payload = jwt.verify(token, SECRET) as token;
 
     const exp = payload.exp;
     const expiresDate = new Date(exp * 1000);
