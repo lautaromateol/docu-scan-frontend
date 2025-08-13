@@ -1,4 +1,3 @@
-import { Separator } from "@/components/ui/separator";
 import { getMembers } from "@/features/members/actions/get-members";
 import { Members } from "@/features/members/components/members";
 import { Users } from "lucide-react";
