@@ -12,15 +12,30 @@ interface NavItemProps {
 }
 
 export function NavItem({ href, title, icon }: NavItemProps) {
+  const pathname = usePathname();
 
-  const pathname = usePathname()
+  const active =
+    pathname.split(`/`).includes(href.split("/")[4]) ||
+    (pathname.split("/").length === 4 && title === "Dashboard");
 
   return (
-    <SidebarMenuItem className={cn(pathname === href && "border-l-4 border-indigo-800 bg-indigo-100", "hover:border-l-4 hover:border-indigo-800 hover:bg-indigo-100")}>
+    <SidebarMenuItem
+      className={cn(
+        active && "from-indigo-800 to-indigo-700 rounded-lg text-white",
+        "bg-gradient-to-r rounded-lg",
+      )}
+    >
       <SidebarMenuButton asChild>
         <Link href={href}>
           {cloneElement(icon, { className: "size-20" })}
-          <p className={cn("text-sm font-light hover:text-indigo-800", pathname === href && "text-indigo-800")}>{title}</p>
+          <p
+            className={cn(
+              "text-sm font-light",
+              active && "text-white"
+            )}
+          >
+            {title}
+          </p>
         </Link>
       </SidebarMenuButton>
     </SidebarMenuItem>

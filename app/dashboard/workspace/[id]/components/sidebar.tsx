@@ -1,24 +1,21 @@
 "use client";
-import {
-  File,
-  Grid2X2,
-  Settings,
-  User,
-} from "lucide-react";
+import { File, Grid2X2, Settings, User } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
+  SidebarGroupLabel,
   SidebarMenu,
 } from "@/components/ui/sidebar";
 import { NavItem } from "./nav-item";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
+import { Separator } from "@/components/ui/separator";
 
 export function AppSidebar() {
   const id = useWorkspaceId();
 
-  const routes = [
+  const mainNavigation = [
     {
       title: "Dashboard",
       href: `/dashboard/workspace/${id}`,
@@ -29,6 +26,9 @@ export function AppSidebar() {
       href: `/dashboard/workspace/${id}/contracts`,
       icon: <File />,
     },
+  ];
+
+  const workspaceNavigation = [
     {
       title: "Settings",
       href: `/dashboard/workspace/${id}/settings`,
@@ -42,17 +42,38 @@ export function AppSidebar() {
   ];
 
   return (
-    <Sidebar>
-      <SidebarContent className="bg-white border-r shadow-xs">
-        <SidebarGroup className="px-0 py-4">
+    <Sidebar className="border-r shadow-xs">
+      <SidebarContent className="px-4 py-2">
+        <SidebarGroup>
+          <SidebarGroupLabel className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+            Main
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {routes.map((route) => (
+              {mainNavigation.map((item) => (
                 <NavItem
-                  key={route.href}
-                  href={route.href}
-                  icon={route.icon}
-                  title={route.title}
+                  key={item.href}
+                  icon={item.icon}
+                  href={item.href}
+                  title={item.title}
+                />
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <Separator />
+        <SidebarGroup>
+          <SidebarGroupLabel className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+            Workspace
+          </SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {workspaceNavigation.map((item) => (
+                <NavItem
+                  key={item.href}
+                  icon={item.icon}
+                  href={item.href}
+                  title={item.title}
                 />
               ))}
             </SidebarMenu>
