@@ -10,12 +10,12 @@ interface ContractDeadlineProps {
 
 export function ContractDeadline({ deadline }: ContractDeadlineProps) {
   return (
-    <div className="rounded-lg shadow-md py-2 px-3">
-      <div className="space-y-4">
-        <div className="space-y-2">
+    <div className="rounded-lg shadow border py-2 px-3">
+      <div className="space-y-2">
+        <div className="space-y-1">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-x-2">
-              <div className="rounded-lg bg-gradient-to-r from-indigo-700 to-indigo-900 p-4">
+              <div className="rounded-lg bg-gradient-to-r from-indigo-700 to-indigo-900 p-2">
                 <Check className="text-white" />
               </div>
               <Badge className="rounded-lg text-xs font-medium bg-indigo-200 text-indigo-700 capitalize">
@@ -35,10 +35,10 @@ export function ContractDeadline({ deadline }: ContractDeadlineProps) {
                 : "Expired"}
             </Badge>
           </div>
-          <p className="text-xl font-semibold">{deadline.description}</p>
+          <p className="text-lg font-semibold">{deadline.description}</p>
         </div>
         <div className="flex items-center gap-x-2">
-          <div className="rounded-lg p-2 bg-indigo-200 text-indigo-700">
+          <div className="rounded-lg p-1 bg-indigo-200 text-indigo-700">
             <Calendar />
           </div>
           <div className="space-y-0.5">

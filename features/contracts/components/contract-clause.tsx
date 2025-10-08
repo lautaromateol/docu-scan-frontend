@@ -16,7 +16,7 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { cva, VariantProps } from "class-variance-authority";
 
-const boxVariant = cva("rounded-lg shadow-md p-4 bg-gradient-to-r", {
+const boxVariant = cva("rounded-lg shadow-md p-2 bg-gradient-to-r", {
   variants: {
     variant: {
       GENERAL: "from-indigo-700 to-indigo-900",
@@ -50,7 +50,7 @@ interface ContractClauseProps extends BoxVariant, BadgeVariant {
 export function ContractClause({ clause, variant }: ContractClauseProps) {
   return (
     <Collapsible>
-      <div className="rounded-lg shadow-md px-3 py-2">
+      <div className="rounded-lg shadow border px-3 py-2">
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-x-2">
@@ -67,8 +67,8 @@ export function ContractClause({ clause, variant }: ContractClauseProps) {
                   <Book />
                 )}
               </div>
-              <div className="space-y-1">
-                <p className="text-xl font-semibold">{clause.title}</p>
+              <div className="space-y-0.5">
+                <p className="text-lg font-medium">{clause.title}</p>
                 <Badge className={cn(badgeVariant({ variant }))}>
                   {clause.clauseType === "GENERAL" ? (
                     <ClipboardList />
@@ -90,7 +90,7 @@ export function ContractClause({ clause, variant }: ContractClauseProps) {
             </CollapsibleTrigger>
           </div>
           <CollapsibleContent>
-            <div className="p-4 rounded-lg border border-gray-300 bg-gray-200">
+            <div className="p-4 rounded-lg border border-gray-300">
               <p className="text-sm text-gray-700">{clause.bodyText}</p>
             </div>
           </CollapsibleContent>

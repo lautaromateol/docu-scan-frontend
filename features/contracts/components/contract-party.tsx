@@ -11,11 +11,11 @@ export function ContractParty({ party }: ContractPartyProps) {
     <div className="rounded-lg shadow-md py-2 px-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-2">
-          <div className="rounded-lg bg-gradient-to-r from-indigo-700 to-indigo-900 p-4">
+          <div className="rounded-lg bg-gradient-to-r from-indigo-700 to-indigo-900 p-2">
             <Building2 className="text-white" />
           </div>
-          <div className="space-y-1">
-            <p className="text-lg font-semibold">{party.name}</p>
+          <div className="space-y-0.5">
+            <p className="text-lg font-medium">{party.name}</p>
             <p className="text-sm text-gray-500">
               Identifier: {party.identifier}
             </p>

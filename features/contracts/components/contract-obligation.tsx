@@ -16,11 +16,11 @@ interface ContractObligationProps {
 
 export function ContractObligation({ obligation }: ContractObligationProps) {
   return (
-    <div className="rounded-lg shadow-md py-2 px-3">
-      <div className="space-y-4">
+    <div className="rounded-lg shadow border py-2 px-3">
+      <div className="space-y-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-x-2">
-            <div className="rounded-lg shadow-md bg-gradient-to-r from-indigo-700 to-indigo-900 p-4">
+            <div className="rounded-lg shadow-md bg-gradient-to-r from-indigo-700 to-indigo-900 p-2">
               <CircleAlert className="text-white" />
             </div>
             <Badge className="bg-indigo-200 text-indigo-700 rounded-full text-xs capitalize">
@@ -52,7 +52,7 @@ export function ContractObligation({ obligation }: ContractObligationProps) {
           ) : null}
         </div>
         <div className="space-y-1">
-          <p className="text-xl font-semibold">{obligation.description}</p>
+          <p className="text-lg font-semibold">{obligation.description}</p>
           <div className="flex items-center gap-x-2">
             <div className="flex items-center gap-x-1">
               <div className="rounded-md p-1 bg-gray-200 text-gray-500">
