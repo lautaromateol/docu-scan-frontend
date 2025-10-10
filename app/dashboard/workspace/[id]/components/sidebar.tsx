@@ -3,6 +3,7 @@ import { File, Grid2X2, Settings, User } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -11,6 +12,7 @@ import {
 import { NavItem } from "./nav-item";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { Separator } from "@/components/ui/separator";
+import { SignOutButton } from "@/features/auth/components/sign-out-button";
 
 export function AppSidebar() {
   const id = useWorkspaceId();
@@ -80,6 +82,9 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+        <SidebarFooter>
+          <SignOutButton />
+        </SidebarFooter>
     </Sidebar>
   );
 }
