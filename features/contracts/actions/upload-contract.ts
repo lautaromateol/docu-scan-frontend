@@ -1,6 +1,7 @@
 "use server";
 import { getToken } from "@/actions/auth/get-token";
 import { API_URL } from "@/lib/constants";
+import { revalidateTag } from "next/cache";
 
 export async function uploadContract({
   file,
@@ -27,6 +28,10 @@ export async function uploadContract({
   });
 
   const data = await response.json();
+
+  if(data.statusCode === 200) {
+    revalidateTag(`kpis-${workspaceId}`)
+  }
 
   return data;
 }
