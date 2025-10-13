@@ -2,7 +2,7 @@ import { Calendar, Check } from "lucide-react";
 import { ContractDeadline as ContractDeadlineType } from "../types";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { isAfter } from "date-fns";
+import { isAfter, isBefore } from "date-fns";
 
 interface ContractDeadlineProps {
   deadline: ContractDeadlineType;
@@ -25,12 +25,12 @@ export function ContractDeadline({ deadline }: ContractDeadlineProps) {
             <Badge
               className={cn(
                 "rounded-full text-xs",
-                isAfter(new Date(), new Date(deadline.date))
+                isBefore(new Date(), new Date(deadline.date))
                   ? "bg-green-200 text-green-700"
                   : "bg-red-200 text-red-700"
               )}
             >
-              {isAfter(new Date(), new Date(deadline.date))
+              {isBefore(new Date(), new Date(deadline.date))
                 ? "In time"
                 : "Expired"}
             </Badge>
