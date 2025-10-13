@@ -7,14 +7,25 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
 } from "@/components/ui/sidebar";
 import { NavItem } from "./nav-item";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { Separator } from "@/components/ui/separator";
 import { SignOutButton } from "@/features/auth/components/sign-out-button";
+import { UserProfileCard } from "@/components/ui/user-profile-card";
 
-export function AppSidebar() {
+interface SidebarProps {
+  user: {
+    name: string;
+    email: string;
+    role: string;
+    image?: string;
+  };
+}
+
+export function AppSidebar({ user }: SidebarProps) {
   const id = useWorkspaceId();
 
   const mainNavigation = [
@@ -45,7 +56,11 @@ export function AppSidebar() {
 
   return (
     <Sidebar className="border-r shadow-xs">
+      <SidebarHeader>
+        <UserProfileCard user={user} />
+      </SidebarHeader>
       <SidebarContent className="px-4 py-2">
+        <Separator />
         <SidebarGroup>
           <SidebarGroupLabel className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
             Main
@@ -82,9 +97,9 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-        <SidebarFooter>
-          <SignOutButton />
-        </SidebarFooter>
+      <SidebarFooter>
+        <SignOutButton />
+      </SidebarFooter>
     </Sidebar>
   );
 }
