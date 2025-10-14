@@ -53,7 +53,7 @@ export default function Home() {
       </section>
 
       <section className="container mx-auto">
-        <div className="max-w-5xl mx-auto py-20 md:py-32 space-y-6">
+        <div className="max-w-5xl mx-auto py-20 md:py-32 px-5 mx:px-0 space-y-6">
           <div className="space-y-2 text-center">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
               <span className="bg-gradient-to-r from-indigo-700 to-indigo-500 bg-clip-text text-transparent">
@@ -102,7 +102,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="container mx-auto">
+      <div className="container mx-auto px-5 md:px-0">
         <div className="max-w-4xl mx-auto bg-gradient-to-r from-indigo-600 to-indigo-800 py-20 md:py-32 space-y-6 text-center rounded-lg">
           <div className="space-y-2">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
