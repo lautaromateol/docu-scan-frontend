@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function Logo({
   variant = "default",
@@ -7,11 +8,13 @@ export function Logo({
 }) {
   return (
     <div className="relative h-8 w-12">
-      <Image
-        src={variant === "default" ? "/logo.svg" : "/logo-indigo.svg"}
-        alt="Docuscan logo"
-        fill
-      />
+      <Link href="/">
+        <Image
+          src={variant === "default" ? "/logo.svg" : "/logo-indigo.svg"}
+          alt="Docuscan logo"
+          fill
+        />
+      </Link>
     </div>
   );
 }
