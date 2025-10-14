@@ -1,65 +1,92 @@
 import { AlertTriangle, Check, FileClock, Pen } from "lucide-react";
 import { Contract } from "../types";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { ContractAnalytic } from "./contract-analytic";
 
 interface ContractsAnalyticsProps {
-  contracts: Contract[]
+  contracts: Contract[];
 }
 
 export function ContractsAnalytics({ contracts }: ContractsAnalyticsProps) {
   return (
-    <div className="grid grid-cols-4 gap-4">
-      <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-indigo-100 shadow-sm">
-        <div className="flex items-center gap-3">
-          <div className="p-2 bg-green-100 rounded-lg">
-            <Pen className="h-5 w-5 text-green-600" />
-          </div>
-          <div>
-            <p className="text-sm text-gray-500">Signed Contracts</p>
-            <p className="text-xl font-bold text-gray-900">
-              {contracts.filter((contract) => contract.status === "SIGNED").length}
-            </p>
-          </div>
-        </div>
+    <>
+      <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <ContractAnalytic
+          contracts={contracts}
+          icon={Pen}
+          status="SIGNED"
+          title="Signed Contracts"
+          variant="success"
+        />
+        <ContractAnalytic
+          contracts={contracts}
+          icon={FileClock}
+          status="DRAFT"
+          title="Drafted Contracts"
+          variant="warn"
+        />
+        <ContractAnalytic
+          contracts={contracts}
+          icon={AlertTriangle}
+          status="EXPIRED"
+          title="Expired Contracts"
+          variant="danger"
+        />
+        <ContractAnalytic
+          contracts={contracts}
+          icon={Check}
+          status="TERMINATED"
+          title="Terminated Contracts"
+        />
       </div>
-      <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-indigo-100 shadow-sm">
-        <div className="flex items-center gap-3">
-          <div className="p-2 bg-yellow-100 rounded-lg">
-            <FileClock className="h-5 w-5 text-yellow-600" />
-          </div>
-          <div>
-            <p className="text-sm text-gray-500">Drafted Contracts</p>
-            <p className="text-xl font-bold text-gray-900">
-              {contracts.filter((contract) => contract.status === "DRAFT").length}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-indigo-100 shadow-sm">
-        <div className="flex items-center gap-3">
-          <div className="p-2 bg-rose-100 rounded-lg">
-            <AlertTriangle className="h-5 w-5 text-rose-600" />
-          </div>
-          <div>
-            <p className="text-sm text-gray-500">Expired Contracts</p>
-            <p className="text-xl font-bold text-gray-900">
-              {contracts.filter((contract) => contract.status === "EXPIRED").length}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-indigo-100 shadow-sm">
-        <div className="flex items-center gap-3">
-          <div className="p-2 bg-indigo-100 rounded-lg">
-            <Check className="h-5 w-5 text-indigo-600" />
-          </div>
-          <div>
-            <p className="text-sm text-gray-500">Terminated Contracts</p>
-            <p className="text-xl font-bold text-gray-900">
-              {contracts.filter((contract) => contract.status === "TERMINATED").length}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+
+      <Carousel className="md:hidden">
+        <CarouselContent>
+          <CarouselItem className="basis-full">
+            <ContractAnalytic
+              contracts={contracts}
+              icon={Pen}
+              status="SIGNED"
+              title="Signed Contracts"
+              variant="success"
+            />
+          </CarouselItem>
+          <CarouselItem className="basis-full">
+            <ContractAnalytic
+              contracts={contracts}
+              icon={FileClock}
+              status="DRAFT"
+              title="Drafted Contracts"
+              variant="warn"
+            />
+          </CarouselItem>
+          <CarouselItem className="basis-full">
+            <ContractAnalytic
+              contracts={contracts}
+              icon={AlertTriangle}
+              status="EXPIRED"
+              title="Expired Contracts"
+              variant="danger"
+            />
+          </CarouselItem>
+          <CarouselItem className="basis-full">
+            <ContractAnalytic
+              contracts={contracts}
+              icon={Check}
+              status="TERMINATED"
+              title="Terminated Contracts"
+            />
+          </CarouselItem>
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </>
   );
 }
