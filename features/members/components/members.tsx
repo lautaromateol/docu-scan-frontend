@@ -25,7 +25,7 @@ export async function Members({ members }: MembersProps) {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-2">
           <Users className="text-indigo-700" />
-          <p className="text-xl font-semibold">Members List</p>
+          <p className="text-lg md:text-xl font-semibold">Members List</p>
         </div>
         <Badge className="rounded-full shadow border-none text-sm font-medium bg-white text-black">
           {members.length} members
@@ -48,14 +48,14 @@ export async function Members({ members }: MembersProps) {
                 />
                 <div className="space-y-1">
                   <div className="flex items-center gap-x-2">
-                    <p className="text-base font-semibold">
+                    <p className="text-sm md:text-base font-semibold">
                       {member.user.name}
                     </p>
                     <Badge className="rounded-full border-none shadow-md font-medium text-sm text-white bg-indigo-900 capitalize">
                       {member.role.toLowerCase()}
                     </Badge>
                   </div>
-                  <div className="flex items-center gap-x-2">
+                  <div className="flex flex-col md:flex-row md:items-center gap-x-2">
                     <div className="flex items-center gap-x-1 text-sm text-gray-400">
                       <Mail className="size-4" />
                       {member.user.email}
