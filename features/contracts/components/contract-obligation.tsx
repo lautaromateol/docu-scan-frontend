@@ -52,15 +52,15 @@ export function ContractObligation({ obligation }: ContractObligationProps) {
           ) : null}
         </div>
         <div className="space-y-1">
-          <p className="text-lg font-semibold">{obligation.description}</p>
+          <p className="text-base md:text-lg font-semibold">{obligation.description}</p>
           <div className="flex items-center gap-x-2">
             <div className="flex items-center gap-x-1">
               <div className="rounded-md p-1 bg-gray-200 text-gray-500">
                 <User className="size-4" />
               </div>
-              <p className="text-sm text-gray-500 font-medium">Responsible:</p>
+              <p className="text-xs md:text-sm text-gray-500 font-medium">Responsible:</p>
             </div>
-            <p className="text-sm font-medium">{obligation.party.name}</p>
+            <p className="text-xs md:text-sm font-medium">{obligation.party.name}</p>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-5">
@@ -69,7 +69,7 @@ export function ContractObligation({ obligation }: ContractObligationProps) {
               <Calendar />
             </div>
             <div className="space-y-0.5">
-              <p className="text-sm font-medium">
+              <p className="text-xs md:text-sm font-medium">
                 {obligation.dueDate
                   ? new Date(obligation.dueDate).toDateString()
                   : "Unknown"}
@@ -82,7 +82,7 @@ export function ContractObligation({ obligation }: ContractObligationProps) {
               <RefreshCcw />
             </div>
             <div className="space-y-0.5">
-              <p className="text-sm font-medium capitalize">
+              <p className="text-xs md:text-sm font-medium capitalize">
                 {obligation.recurrence ? obligation.recurrence.toLowerCase() : "Unknown"}
               </p>
               <p className="text-xs text-gray-400">Recurrence</p>

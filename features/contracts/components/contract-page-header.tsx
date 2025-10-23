@@ -7,9 +7,9 @@ import { Separator } from "@/components/ui/separator";
 
 export function ContractPageHeader({ contract }: { contract: Contract }) {
   return (
-    <header className="grid grid-cols-3 gap-4">
+    <header className="flex flex-col md:grid grid-cols-3 gap-4">
       <div className="col-span-2">
-        <div className="flex items-start gap-x-4">
+        <div className="flex flex-col md:flex-row items-start gap-4">
           <div className="rounded-lg shadow-sm bg-gradient-to-r from-indigo-500 to-indigo-600 p-4">
             <FileText className="text-white" />
           </div>
