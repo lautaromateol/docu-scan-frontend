@@ -25,7 +25,7 @@ export function DeleteWorkspaceForm({ workspaceId }: { workspaceId: string }) {
       <ConfirmationDialog />
       <Button
         variant="destructive"
-        className="w-1/3 mt-2"
+        className="w-full md:w-1/2 lg:w-1/3 mt-2"
         disabled={isDeletingWorkspace}
       >
         Delete workspace

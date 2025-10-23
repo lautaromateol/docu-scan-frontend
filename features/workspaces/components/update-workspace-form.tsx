@@ -39,7 +39,7 @@ export function UpdateWorkspaceForm({ workspace }: UpdateWorkspaceFormProps) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 w-1/3">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 w-full md:w-1/2 lg:w-1/3">
         {isError ? (
           <div className="bg-red-100 p-2 border border-destructive rounded-sm shadow">
             <p className="text-sm font-light text-destructive">

@@ -12,13 +12,16 @@ export function UpdateWorkspace({ workspace }: { workspace: Workspace }) {
         </div>
         <div className="space-y-0.5">
           <p className="text-xl font-semibold">Workspace Identity</p>
-          <p className="text-base text-gray-500">
+          <p className="text-sm md:text-base text-gray-500">
             Define your workspace identity and make it recognizable to your team
             members.
           </p>
         </div>
       </div>
-      <WorkspaceAvatar className="size-16 text-2xl" name={workspace.name} />
+      <WorkspaceAvatar
+        className="size-12 md:size-14 lg:size-16 text-lg md:text-xl lg:text-2xl"
+        name={workspace.name}
+      />
       <UpdateWorkspaceForm workspace={workspace} />
       <p className="text-xs text-gray-600">
         This name will appear in invitations and throughout the workspace
