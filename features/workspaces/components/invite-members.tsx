@@ -26,7 +26,7 @@ export function InviteMembers({ workspace }: InviteMembersProps) {
         </div>
         <div className="space-y-0.5">
           <p className="text-xl font-semibold">Team Access</p>
-          <p className="text-base text-gray-500">
+          <p className="text-sm md:text-base text-gray-500">
             Share your workspace securely with team members using invitation
             codes.
           </p>

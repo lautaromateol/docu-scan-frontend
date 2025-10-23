@@ -11,7 +11,7 @@ export function DangerZone({ workspace }: { workspace: Workspace }) {
         </div>
         <div className="space-y-0.5">
           <p className="text-xl font-semibold text-rose-700">Danger Zone</p>
-          <p className="text-base text-gray-500">
+          <p className="text-sm md:text-base text-gray-500">
             Irreversible actions that will permanently affect your workspace and
             all associated data.
           </p>
