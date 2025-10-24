@@ -14,7 +14,7 @@ export default async function ContractsPage({ params }: any) {
           <File className="text-white" />
         </div>
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold">Contracts</h1>
-        <p className="text-lg md:text-xl text-gray-600 text-center">
+        <p className="text-lg md:text-xl text-gray-600 md:text-center">
           Review and manage the uploaded contracts of your workspace.
         </p>
       </div>

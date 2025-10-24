@@ -19,7 +19,7 @@ export default async function WorkspaceSettingsPage({ params }: any) {
           <Settings className="text-white" />
         </div>
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center">Workspace Settings</h1>
-        <p className="text-lg md:text-xl text-gray-600 text-center">
+        <p className="text-lg md:text-xl text-gray-600 md:text-center">
           Customize your workspace, manage team access, and configure security
           settings with enterprise-grade controls.
         </p>

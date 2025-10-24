@@ -14,7 +14,7 @@ export default async function MembersPage({ params }: any) {
           <Users className="text-white" />
         </div>
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center">Workspace Members</h1>
-        <p className="text-lg md:text-xl text-gray-600 text-center">
+        <p className="text-lg md:text-xl text-gray-600 md:text-center">
           Manage your workspace team members, and configure roles.
         </p>
       </div>
