@@ -17,8 +17,8 @@ export function ContractCarousel({ contract }: { contract: Contract }) {
   return (
     <div className="md:hidden">
       <Carousel>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="top-10 left-5" />
+        <CarouselNext className="top-10 right-5" />
         <CarouselContent>
           <ContractCarouselItem
             title="Involved Parties"
