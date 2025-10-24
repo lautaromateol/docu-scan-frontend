@@ -14,7 +14,7 @@ export default async function WorkspaceSettingsPage({ params }: any) {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col items-center space-y-3 mx-auto w-1/2">
+      <div className="flex flex-col items-center space-y-3 mx-0 md:mx-auto w-full md:w-1/2">
         <div className="rounded-lg shadow-md p-2 md:p-4 bg-gradient-to-r from-indigo-700 to-indigo-900 w-auto">
           <Settings className="text-white" />
         </div>
