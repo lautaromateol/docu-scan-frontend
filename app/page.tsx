@@ -14,7 +14,7 @@ import {
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
-      <header className="w-full border border-b sticky top-0 z-50 p-4 flex items-center justify-between bg-white">
+      <header className="w-full border-b border-border sticky top-0 z-50 p-4 flex items-center justify-between bg-background/80 backdrop-blur-md">
         <Logo variant="landing" />
         <nav className="flex items-center justify-center gap-x-3">
           <Button asChild variant="secondary">
@@ -28,27 +28,29 @@ export default function Home() {
 
       <section className="container mx-auto">
         <div className="max-w-5xl mx-auto py-20 md:py-32 space-y-6 text-center">
-          <div className="rounded-full bg-indigo-100/50 text-indigo-700 border border-indigo-400 px-4 py-2 inline-flex items-center gap-x-1">
+          <div className="rounded-full bg-primary/10 text-primary border border-primary/30 px-4 py-2 inline-flex items-center gap-x-1 animate-fade-up">
             <Sparkles className="size-5" />
             <p className="text-sm font-medium">Powered by Advanced AI</p>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 animate-fade-up animation-delay-100">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold">
-              <span className="bg-gradient-to-r from-indigo-700 to-indigo-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-info bg-clip-text text-transparent">
                 Extract
               </span>{" "}
               critical information from contracts instantly
             </h1>
-            <p className="text-lg md:text-xl text-slate-700">
+            <p className="text-lg md:text-xl text-muted-foreground">
               Automatically identify clauses, obligations, deadlines,
               termination terms, and involved parties. Transform complex
               contracts into structured, actionable data in seconds.
             </p>
           </div>
-          <Button size="lg">
-            Start scanning free
-            <ArrowRight className="size-6" />
-          </Button>
+          <div className="animate-fade-up animation-delay-300">
+            <Button size="lg" className="shadow-glow animate-glow-pulse">
+              Start scanning free
+              <ArrowRight className="size-6" />
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -56,12 +58,12 @@ export default function Home() {
         <div className="max-w-5xl mx-auto py-20 md:py-32 px-5 mx:px-0 space-y-6">
           <div className="space-y-2 text-center">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-              <span className="bg-gradient-to-r from-indigo-700 to-indigo-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-info bg-clip-text text-transparent">
                 Intelligent
               </span>{" "}
               contract data extraction made simple
             </h2>
-            <p className="text-lg md:text-xl text-slate-600">
+            <p className="text-lg md:text-xl text-muted-foreground">
               Our AI-Powered platform extracts and organizes key contract
               information automatically, helping you understand obligations,
               deadlines, and risks at a glance.
@@ -103,13 +105,13 @@ export default function Home() {
       </section>
 
       <div className="container mx-auto px-5 md:px-0">
-        <div className="max-w-4xl mx-auto bg-gradient-to-r from-indigo-600 to-indigo-800 py-20 md:py-32 space-y-6 text-center rounded-lg">
+        <div className="max-w-4xl mx-auto bg-gradient-to-br from-primary/20 via-card to-card py-20 md:py-32 space-y-6 text-center rounded-2xl border border-primary/30 shadow-glow">
           <div className="space-y-2">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-              Ready to <span className="underline">transform</span> your
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+              Ready to <span className="underline decoration-primary">transform</span> your
               contract workflow?
             </h2>
-            <p className="text-lg md:text-xl text-slate-300">
+            <p className="text-lg md:text-xl text-muted-foreground">
               Join thousands of legal teams who trust Docuscan to streamline
               their contract review process. Start your free trial today--no
               credit card required.
@@ -124,7 +126,7 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className="border-t border-border/40 bg-muted/30 mt-12">
+      <footer className="border-t border-border bg-card/50 mt-20">
         <div className="container mx-auto px-4 py-12">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <Logo variant="landing" />
@@ -280,17 +282,17 @@ function Feature({
   features: string[];
 }) {
   return (
-    <div className="w-full rounded-lg p-8 space-y-6 border shadow-sm transition-all hover:border hover:border-indigo-700">
-      <div className="rounded-lg bg-indigo-100 p-3 inline-block">
-        {cloneElement(icon, { className: "size-6 text-indigo-700" })}
+    <div className="w-full rounded-xl p-8 space-y-6 border border-border bg-card shadow-card transition-all duration-200 hover:border-primary/40 hover:shadow-modal hover:-translate-y-0.5 animate-fade-up">
+      <div className="rounded-lg bg-primary/10 border border-primary/20 p-3 inline-block">
+        {cloneElement(icon, { className: "size-6 text-primary" })}
       </div>
       <h3 className="text-xl md:text-2xl font-bold">{title}</h3>
-      <p className="text-slate-700 text-base">{description}</p>
+      <p className="text-muted-foreground text-base">{description}</p>
       <ul className="flex flex-col gap-y-2 list-none">
         {features.map((feature, _i) => (
           <li key={_i} className="flex items-center gap-x-2">
-            <CheckCircle className="size-6 text-indigo-700" />
-            <p className="text-sm text-slate-600">{feature}</p>
+            <CheckCircle className="size-5 text-success flex-shrink-0" />
+            <p className="text-sm text-muted-foreground">{feature}</p>
           </li>
         ))}
       </ul>

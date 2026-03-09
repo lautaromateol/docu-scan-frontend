@@ -7,7 +7,7 @@ export default function CreateWorkspacePage() {
         <h2 className="text-3xl font-medium text-center">
           Create your first workspace!
         </h2>
-        <p className="text-slate-500 font-light text-sm">
+        <p className="text-muted-foreground font-light text-sm">
           Invite your team-mates or colleagues to start working together now.
         </p>
       </div>

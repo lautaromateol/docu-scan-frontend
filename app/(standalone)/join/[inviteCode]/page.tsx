@@ -12,7 +12,7 @@ export default async function JoinPage({ params }: any) {
       <div className="space-y-8">
         <div className="space-y-0.5">
           <h2 className="text-3xl font-medium text-center">404.</h2>
-          <p className="text-slate-500 font-light text-sm text-center">
+          <p className="text-muted-foreground font-light text-sm text-center">
             This workspace does not exist.
           </p>
         </div>
@@ -26,7 +26,7 @@ export default async function JoinPage({ params }: any) {
         <h2 className="text-3xl font-medium text-center">
           You have been invited to join a workspace.
         </h2>
-        <p className="text-slate-500 font-light text-sm text-center">
+        <p className="text-muted-foreground font-light text-sm text-center">
           Accept the invitation and start working now with your team-mates.
         </p>
       </div>
