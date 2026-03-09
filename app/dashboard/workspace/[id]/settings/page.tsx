@@ -15,11 +15,11 @@ export default async function WorkspaceSettingsPage({ params }: any) {
   return (
     <div className="space-y-6">
       <div className="flex flex-col items-center space-y-3 mx-0 md:mx-auto w-full md:w-1/2">
-        <div className="rounded-lg shadow-md p-2 md:p-4 bg-gradient-to-r from-indigo-700 to-indigo-900 w-auto">
-          <Settings className="text-white" />
+        <div className="rounded-lg shadow-card p-2 md:p-4 bg-primary/10 border border-primary/20 w-auto">
+          <Settings className="text-primary" />
         </div>
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center">Workspace Settings</h1>
-        <p className="text-lg md:text-xl text-gray-600 md:text-center">
+        <p className="text-lg md:text-xl text-muted-foreground md:text-center">
           Customize your workspace, manage team access, and configure security
           settings with enterprise-grade controls.
         </p>

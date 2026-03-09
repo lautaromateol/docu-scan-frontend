@@ -21,8 +21,8 @@ export function NavItem({ href, title, icon }: NavItemProps) {
   return (
     <SidebarMenuItem
       className={cn(
-        active && "from-indigo-800 to-indigo-700 rounded-lg text-white",
-        "bg-gradient-to-r rounded-lg",
+        "rounded-lg",
+        active && "bg-primary/15 border border-primary/20",
       )}
     >
       <SidebarMenuButton asChild>
@@ -30,8 +30,8 @@ export function NavItem({ href, title, icon }: NavItemProps) {
           {cloneElement(icon, { className: "size-20" })}
           <p
             className={cn(
-              "text-sm font-light",
-              active && "text-white"
+              "text-sm font-light text-muted-foreground",
+              active && "text-primary font-medium"
             )}
           >
             {title}

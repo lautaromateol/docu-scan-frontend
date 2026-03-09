@@ -55,14 +55,14 @@ export function AppSidebar({ user }: SidebarProps) {
   ];
 
   return (
-    <Sidebar className="border-r shadow-xs">
+    <Sidebar className="border-r border-border shadow-card bg-sidebar">
       <SidebarHeader>
         <UserProfileCard user={user} />
       </SidebarHeader>
       <SidebarContent className="px-4 py-2">
         <Separator />
         <SidebarGroup>
-          <SidebarGroupLabel className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+          <SidebarGroupLabel className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-2">
             Main
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -80,7 +80,7 @@ export function AppSidebar({ user }: SidebarProps) {
         </SidebarGroup>
         <Separator />
         <SidebarGroup>
-          <SidebarGroupLabel className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+          <SidebarGroupLabel className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-2">
             Workspace
           </SidebarGroupLabel>
           <SidebarGroupContent>

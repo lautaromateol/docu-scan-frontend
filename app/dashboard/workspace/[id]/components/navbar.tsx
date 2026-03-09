@@ -9,7 +9,7 @@ export async function Navbar() {
   const workspaces = await getWorkspaces();
 
   return (
-    <header className="h-14 p-4 flex items-center justify-between border-b shadow-xs">
+    <header className="h-14 px-4 flex items-center justify-between border-b border-border bg-background shadow-card">
       <SidebarTrigger />
       <div className="flex items-center gap-x-0.5">
         <UploadContractButton />
