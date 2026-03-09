@@ -10,7 +10,7 @@ export function WorkspaceAvatar({ name, className }: WorkspaceAvatarProps) {
   return (
     <div
       className={cn(
-        "flex items-center justify-center rounded-full bg-indigo-100 text-indigo-800 font-medium size-6",
+        "flex items-center justify-center rounded-full bg-primary/15 text-primary font-medium size-6",
         className
       )}
     >

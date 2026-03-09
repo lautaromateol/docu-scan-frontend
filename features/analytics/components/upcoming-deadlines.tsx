@@ -46,7 +46,7 @@ export const DeadlinesTable = ({ deadlines }: DeadlinesTableProps) => {
     }
     if (days <= 15) {
       return (
-        <Badge className="bg-warning text-warning-foreground text-xs">
+        <Badge variant="warning" className="text-xs">
           {days}d
         </Badge>
       );
@@ -87,12 +87,12 @@ export const DeadlinesTable = ({ deadlines }: DeadlinesTableProps) => {
     <div className="space-y-6">
       <div className="space-y-1">
         <div className="flex items-center gap-x-2">
-          <div className="rounded-lg border bg-indigo-100 p-2">
-            <CalendarCheck className="text-indigo-700 size-8" />
+          <div className="rounded-lg border border-primary/30 bg-primary/10 p-2">
+            <CalendarCheck className="text-primary size-8" />
           </div>
-          <p className="text-3xl font-semibold">Upcoming Deadlines</p>
+          <p className="text-3xl font-semibold text-foreground">Upcoming Deadlines</p>
         </div>
-        <span className="text-sm text-slate-700">
+        <span className="text-sm text-muted-foreground">
           Review contract's deadlines near to due date.
         </span>
       </div>

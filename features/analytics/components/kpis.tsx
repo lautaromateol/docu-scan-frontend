@@ -23,12 +23,12 @@ export function KPIs({ kpis }: { kpis: KPIS }) {
     <div className="space-y-6">
       <div className="space-y-1">
         <div className="flex items-center gap-x-2">
-          <div className="rounded-lg border bg-indigo-100 p-2">
-            <PieChart className="text-indigo-700 size-8" />
+          <div className="rounded-lg border border-primary/30 bg-primary/10 p-2">
+            <PieChart className="text-primary size-8" />
           </div>
-          <p className="text-3xl font-semibold">KPI's</p>
+          <p className="text-3xl font-semibold text-foreground">KPI's</p>
         </div>
-        <span className="text-sm text-slate-700">
+        <span className="text-sm text-muted-foreground">
           Review key analytics about your contracts.
         </span>
       </div>

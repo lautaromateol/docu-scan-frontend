@@ -21,7 +21,6 @@ import {
   FileText,
   Clock,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { Contract } from "@/features/contracts/types";
 import { differenceInDays } from "date-fns";
 
@@ -64,7 +63,7 @@ export function UpcomingContractsTable({
     }
     if (days <= 15) {
       return (
-        <Badge className="bg-warning text-warning-foreground text-xs">
+        <Badge variant="warning" className="text-xs">
           {days}d
         </Badge>
       );
@@ -106,12 +105,12 @@ export function UpcomingContractsTable({
       {/* Header */}
       <div className="space-y-1">
         <div className="flex items-center gap-x-2">
-          <div className="rounded-lg border bg-indigo-100 p-2">
-            <AlertCircle className="text-indigo-700 size-8" />
+          <div className="rounded-lg border border-warning/30 bg-warning/10 p-2">
+            <AlertCircle className="text-warning size-8" />
           </div>
-          <p className="text-3xl font-semibold">Contracts close to due date</p>
+          <p className="text-3xl font-semibold text-foreground">Contracts close to due date</p>
         </div>
-        <span className="text-sm text-slate-700">
+        <span className="text-sm text-muted-foreground">
           Review contract's near to due date.
         </span>
       </div>
@@ -164,14 +163,8 @@ export function UpcomingContractsTable({
                   </TableCell>
                   <TableCell>
                     <Badge
-                      variant={
-                        contract.status === "SIGNED" ? "default" : "secondary"
-                      }
-                      className={cn(
-                        "text-xs font-normal",
-                        contract.status === "SIGNED" &&
-                          "bg-success/10 text-success border-success/20 hover:bg-success/20"
-                      )}
+                      variant={contract.status === "SIGNED" ? "success" : "secondary"}
+                      className="text-xs font-normal"
                     >
                       {getStatusLabel(contract.status)}
                     </Badge>

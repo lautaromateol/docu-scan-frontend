@@ -21,13 +21,13 @@ export async function Members({ members }: MembersProps) {
   const me = members.find((member) => member.userId === user.id);
 
   return (
-    <div className="space-y-6 rounded-md shadow-md p-4">
+    <div className="space-y-6 rounded-md shadow-card border border-border bg-card p-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-2">
-          <Users className="text-indigo-700" />
+          <Users className="text-primary" />
           <p className="text-lg md:text-xl font-semibold">Members List</p>
         </div>
-        <Badge className="rounded-full shadow border-none text-sm font-medium bg-white text-black">
+        <Badge variant="secondary" className="rounded-full shadow-card text-sm font-medium">
           {members.length} members
         </Badge>
       </div>
@@ -51,16 +51,16 @@ export async function Members({ members }: MembersProps) {
                     <p className="text-sm md:text-base font-semibold">
                       {member.user.name}
                     </p>
-                    <Badge className="rounded-full border-none shadow-md font-medium text-sm text-white bg-indigo-900 capitalize">
+                    <Badge variant="default" className="rounded-full shadow-card font-medium text-sm capitalize">
                       {member.role.toLowerCase()}
                     </Badge>
                   </div>
                   <div className="flex flex-col md:flex-row md:items-center gap-x-2">
-                    <div className="flex items-center gap-x-1 text-sm text-gray-400">
+                    <div className="flex items-center gap-x-1 text-sm text-muted-foreground">
                       <Mail className="size-4" />
                       {member.user.email}
                     </div>
-                    <div className="flex items-center gap-x-1 text-sm text-gray-400">
+                    <div className="flex items-center gap-x-1 text-sm text-muted-foreground">
                       <Calendar className="size-4" />
                       Joined: {format(new Date(member.createdAt), "dd/MM/yy")}
                     </div>

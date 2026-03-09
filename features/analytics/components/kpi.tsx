@@ -13,10 +13,10 @@ import { ObligationsByTypeChart } from "./obligations-by-type";
 const iconVariant = cva("size-6", {
   variants: {
     variant: {
-      default: "text-indigo-500",
-      warn: "text-yellow-500",
-      success: "text-emerald-500",
-      danger: "text-rose-500",
+      default: "text-primary",
+      warn:    "text-warning",
+      success: "text-success",
+      danger:  "text-destructive",
     },
   },
   defaultVariants: {
@@ -47,15 +47,15 @@ export function KPICard({
   variant,
 }: KPIProps) {
   return (
-    <div className="rounded-lg shadow border border-slate-200 space-y-2 p-4">
+    <div className="rounded-xl shadow-card border border-border bg-card space-y-3 p-4 transition-all duration-200 hover:border-primary/20 hover:shadow-modal">
       <div className="flex items-center gap-x-2">
         <Icon className={cn(iconVariant({ variant }))} />
-        <p className="text-base font-medium text-slate-700">{title}</p>
+        <p className="text-base font-medium text-foreground">{title}</p>
       </div>
       {(!contractsByStatus || !contractsByCategory || !obligationsByTipe) && (
-        <p className="overflow-hidden text-3xl font-bold px-2">{metric}</p>
+        <p className="overflow-hidden text-3xl font-bold px-2 text-foreground tabular-nums">{metric}</p>
       )}
-      <span className="text-sm text-slate-500">{description}</span>
+      <span className="text-sm text-muted-foreground">{description}</span>
       {contractsByCategory && (
         <div className="pt-1">
           <ContractsByCategoryChart data={contractsByCategory} />

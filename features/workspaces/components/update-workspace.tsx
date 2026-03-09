@@ -5,14 +5,14 @@ import { WorkspaceAvatar } from "./workspace-avatar";
 
 export function UpdateWorkspace({ workspace }: { workspace: Workspace }) {
   return (
-    <div className="space-y-3 p-4 rounded-md hover:border hover:border-t-4 border-indigo-700 border-t-4 shadow transition-all hover:shadow-indigo-300 hover:shadow-md hover:scale-101">
+    <div className="space-y-3 p-4 rounded-md border-t-4 border-t-primary/60 border border-border shadow-card bg-card transition-all duration-200 hover:shadow-modal hover:border-primary/30">
       <div className="flex items-center gap-x-2">
-        <div className="rounded-lg border border-indigo-200 p-2">
-          <Sparkles className="text-indigo-600" />
+        <div className="rounded-lg border border-primary/20 bg-primary/10 p-2">
+          <Sparkles className="text-primary" />
         </div>
         <div className="space-y-0.5">
           <p className="text-xl font-semibold">Workspace Identity</p>
-          <p className="text-sm md:text-base text-gray-500">
+          <p className="text-sm md:text-base text-muted-foreground">
             Define your workspace identity and make it recognizable to your team
             members.
           </p>
@@ -23,7 +23,7 @@ export function UpdateWorkspace({ workspace }: { workspace: Workspace }) {
         name={workspace.name}
       />
       <UpdateWorkspaceForm workspace={workspace} />
-      <p className="text-xs text-gray-600">
+      <p className="text-xs text-muted-foreground">
         This name will appear in invitations and throughout the workspace
         interface.
       </p>

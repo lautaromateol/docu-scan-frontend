@@ -8,7 +8,7 @@ export function CreateWorkspaceButton() {
 
   return (
     <Button variant="ghost" onClick={open}>
-      <PlusCircleIcon className="text-indigo-800" />
+      <PlusCircleIcon className="text-primary" />
     </Button>
   );
 }

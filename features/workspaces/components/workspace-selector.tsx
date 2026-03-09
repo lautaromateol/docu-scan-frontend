@@ -31,7 +31,7 @@ export function WorkspaceSelector({ workspaces }: WorkspaceSelectorProps) {
         {workspaces.map((workspace) => (
           <SelectItem value={workspace.id} key={workspace.id}>
             <div className="flex items-center gap-x-4">
-              <div className="flex items-center justify-center rounded-full bg-indigo-100 text-indigo-800 font-medium size-6">
+              <div className="flex items-center justify-center rounded-full bg-primary/15 text-primary font-medium size-6">
                 {workspace.name.at(0)?.toUpperCase()}
               </div>
               <p className="text-sm font-light">{workspace.name}</p>
