@@ -16,14 +16,14 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { cva, VariantProps } from "class-variance-authority";
 
-const boxVariant = cva("rounded-lg shadow-md p-2 bg-gradient-to-r", {
+const boxVariant = cva("rounded-lg shadow-card p-2", {
   variants: {
     variant: {
-      GENERAL: "from-indigo-700 to-indigo-900",
-      CONFIDENTIALITY: "from-yellow-700 to-yellow-900",
-      PENALTY: "from-rose-700 to-rose-900",
-      JURISDICTION: "from-purple-700 to-purple-900",
-      OTHER: "from-green-700 to-green-900",
+      GENERAL:         "bg-primary/10 text-primary border border-primary/20",
+      CONFIDENTIALITY: "bg-warning/10 text-warning border border-warning/20",
+      PENALTY:         "bg-destructive/10 text-destructive border border-destructive/20",
+      JURISDICTION:    "bg-info/10 text-info border border-info/20",
+      OTHER:           "bg-success/10 text-success border border-success/20",
     },
   },
 });
@@ -31,11 +31,11 @@ const boxVariant = cva("rounded-lg shadow-md p-2 bg-gradient-to-r", {
 const badgeVariant = cva("rounded-full text-xs space-x-0.5 capitalize", {
   variants: {
     variant: {
-      GENERAL: "text-indigo-700 bg-indigo-200",
-      CONFIDENTIALITY: "text-yellow-700 bg-yellow-200",
-      PENALTY: "text-rose-700 bg-rose-200",
-      JURISDICTION: "text-purple-700 bg-purple-200",
-      OTHER: "text-green-700 bg-green-200",
+      GENERAL:         "text-primary bg-primary/15 border-primary/20",
+      CONFIDENTIALITY: "text-warning bg-warning/15 border-warning/20",
+      PENALTY:         "text-destructive bg-destructive/15 border-destructive/20",
+      JURISDICTION:    "text-info bg-info/15 border-info/20",
+      OTHER:           "text-success bg-success/15 border-success/20",
     },
   },
 });
@@ -50,11 +50,11 @@ interface ContractClauseProps extends BoxVariant, BadgeVariant {
 export function ContractClause({ clause, variant }: ContractClauseProps) {
   return (
     <Collapsible>
-      <div className="rounded-lg shadow border px-3 py-2">
+      <div className="rounded-lg shadow-card border border-border bg-card px-3 py-2">
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-x-2">
-              <div className={cn("text-white", boxVariant({ variant }))}>
+              <div className={cn(boxVariant({ variant }))}>
                 {clause.clauseType === "GENERAL" ? (
                   <ClipboardList />
                 ) : clause.clauseType === "CONFIDENTIALITY" ? (
@@ -86,12 +86,12 @@ export function ContractClause({ clause, variant }: ContractClauseProps) {
               </div>
             </div>
             <CollapsibleTrigger>
-              <ChevronDown />
+              <ChevronDown className="text-muted-foreground" />
             </CollapsibleTrigger>
           </div>
           <CollapsibleContent>
-            <div className="p-4 rounded-lg border border-gray-300">
-              <p className="text-sm text-gray-700">{clause.bodyText}</p>
+            <div className="p-4 rounded-lg border border-border bg-secondary/30">
+              <p className="text-sm text-muted-foreground">{clause.bodyText}</p>
             </div>
           </CollapsibleContent>
         </div>

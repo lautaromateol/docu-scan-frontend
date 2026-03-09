@@ -60,11 +60,11 @@ export function FileUpload({ files, setFiles }: FileUploadProps) {
           transition-all duration-300 ease-out
           ${
             isDragging
-              ? "border-blue-500 bg-blue-50 scale-105 shadow-lg"
-              : "border-gray-300 bg-white hover:border-blue-400 hover:bg-blue-50/50 hover:scale-102"
+              ? "border-primary bg-primary/10 scale-105 shadow-glow"
+              : "border-border bg-card hover:border-primary/50 hover:bg-primary/5"
           }
           min-h-[300px] flex flex-col items-center justify-center
-          group shadow-sm hover:shadow-md
+          group shadow-card hover:shadow-modal
         `}
         onClick={handleClick}
         onDragOver={handleDragOver}
@@ -82,7 +82,7 @@ export function FileUpload({ files, setFiles }: FileUploadProps) {
 
         <div
           className={`
-          transition-all duration-300 
+          transition-all duration-300
           ${isDragging ? "scale-110" : "group-hover:scale-105"}
         `}
         >
@@ -93,41 +93,41 @@ export function FileUpload({ files, setFiles }: FileUploadProps) {
                 mx-auto transition-colors duration-300
                 ${
                   isDragging
-                    ? "text-blue-500"
-                    : "text-gray-400 group-hover:text-blue-500"
+                    ? "text-primary"
+                    : "text-muted-foreground group-hover:text-primary"
                 }
               `}
             />
           </div>
 
-          <h3 className="text-xl font-semibold text-gray-700 mb-2">
+          <h3 className="text-xl font-semibold text-foreground mb-2">
             {isDragging ? "Drop your files here!" : "Drop your files"}
           </h3>
 
-          <p className="text-gray-500 mb-4">
+          <p className="text-muted-foreground mb-4">
             Drag and drop files here, or click to select
           </p>
 
-          <div className="text-sm text-gray-400">
+          <div className="text-sm text-muted-foreground">
             Supported formats: PDF, DOCX, TXT
           </div>
         </div>
 
-        {/* Animated background effect */}
+        {/* Animated glow effect */}
         <div
           className={`
           absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300
-          ${isDragging ? "opacity-10" : ""}
-          bg-gradient-to-r from-blue-500 to-purple-500
+          ${isDragging ? "opacity-100" : ""}
+          bg-gradient-to-r from-primary/5 to-info/5
         `}
         />
       </div>
 
       {/* File List */}
       {files.length > 0 && (
-        <div className="bg-white rounded-xl shadow-sm border p-6">
+        <div className="bg-card rounded-xl shadow-card border border-border p-6">
           <div className="flex items-center justify-between mb-4">
-            <h4 className="text-lg font-semibold text-gray-700 flex items-center gap-2">
+            <h4 className="text-lg font-semibold text-foreground flex items-center gap-2">
               <File size={20} />
               Selected files ({files.length})
             </h4>
@@ -135,7 +135,7 @@ export function FileUpload({ files, setFiles }: FileUploadProps) {
               variant="outline"
               size="sm"
               onClick={clearAllFiles}
-              className="text-red-600 hover:text-red-700 hover:bg-red-50"
+              className="text-destructive hover:text-destructive hover:bg-destructive/10"
             >
               <X size={16} className="mr-1" />
               Clear all

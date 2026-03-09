@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 const iconVariant = cva("size-5", {
   variants: {
     variant: {
-      default: "text-indigo-500",
-      warn: "text-yellow-500",
-      success: "text-emerald-500",
-      danger: "text-rose-500",
+      default: "text-primary",
+      warn:    "text-warning",
+      success: "text-success",
+      danger:  "text-destructive",
     },
   },
   defaultVariants: {
@@ -17,13 +17,13 @@ const iconVariant = cva("size-5", {
   },
 });
 
-const boxVariant = cva("p-2 rounded-lg", {
+const boxVariant = cva("p-2 rounded-lg border", {
   variants: {
     variant: {
-      default: "bg-indigo-100",
-      warn: "bg-yellow-100",
-      success: "bg-emerald-100",
-      danger: "bg-rose-100",
+      default: "bg-primary/10 border-primary/20",
+      warn:    "bg-warning/10 border-warning/20",
+      success: "bg-success/10 border-success/20",
+      danger:  "bg-destructive/10 border-destructive/20",
     },
   },
   defaultVariants: {
@@ -49,14 +49,14 @@ export function ContractAnalytic({
   variant,
 }: ContractAnalyticProps) {
   return (
-    <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-indigo-100 shadow-sm">
+    <div className="bg-card rounded-xl p-4 border border-border shadow-card transition-all duration-200 hover:border-primary/20">
       <div className="flex items-center gap-3">
         <div className={cn(boxVariant({ variant }))}>
           <Icon className={cn(iconVariant({ variant }))} />
         </div>
         <div>
-          <p className="text-sm text-gray-500">{title}</p>
-          <p className="text-xl font-bold text-gray-900">
+          <p className="text-sm text-muted-foreground">{title}</p>
+          <p className="text-xl font-bold text-foreground">
             {contracts.filter((contract) => contract.status === status).length}
           </p>
         </div>

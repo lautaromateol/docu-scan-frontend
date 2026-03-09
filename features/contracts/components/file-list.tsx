@@ -12,15 +12,15 @@ export const FileList: React.FC<FileListProps> = ({ files, onRemove }) => {
     const type = file.type;
     const size = 20;
     
-    if (type.startsWith('image/')) return <Image size={size} className="text-green-500" />;
-    if (type.startsWith('video/')) return <Video size={size} className="text-red-500" />;
-    if (type.startsWith('audio/')) return <Music size={size} className="text-purple-500" />;
-    if (type.includes('pdf') || type.includes('document') || type.includes('text')) 
-      return <FileText size={size} className="text-blue-500" />;
-    if (type.includes('zip') || type.includes('rar') || type.includes('compressed')) 
-      return <Archive size={size} className="text-orange-500" />;
-    
-    return <File size={size} className="text-gray-500" />;
+    if (type.startsWith('image/')) return <Image size={size} className="text-success" />;
+    if (type.startsWith('video/')) return <Video size={size} className="text-destructive" />;
+    if (type.startsWith('audio/')) return <Music size={size} className="text-info" />;
+    if (type.includes('pdf') || type.includes('document') || type.includes('text'))
+      return <FileText size={size} className="text-primary" />;
+    if (type.includes('zip') || type.includes('rar') || type.includes('compressed'))
+      return <Archive size={size} className="text-warning" />;
+
+    return <File size={size} className="text-muted-foreground" />;
   };
 
   const formatFileSize = (bytes: number) => {
@@ -36,26 +36,26 @@ export const FileList: React.FC<FileListProps> = ({ files, onRemove }) => {
       {files.map((file, index) => (
         <div
           key={`${file.name}-${index}`}
-          className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 group"
+          className="flex items-center gap-3 p-3 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors duration-200 group"
         >
           <div className="flex-shrink-0">
             {getFileIcon(file)}
           </div>
-          
+
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-gray-700 truncate">
+            <p className="text-sm font-medium text-foreground truncate">
               {file.name}
             </p>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-muted-foreground">
               {formatFileSize(file.size)}
             </p>
           </div>
-          
+
           <Button
             variant="ghost"
             size="sm"
             onClick={() => onRemove(index)}
-            className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-red-600 hover:text-red-700 hover:bg-red-50 p-1 h-auto"
+            className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-destructive hover:text-destructive hover:bg-destructive/10 p-1 h-auto"
           >
             <X size={16} />
           </Button>

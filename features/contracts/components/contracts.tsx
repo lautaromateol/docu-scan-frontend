@@ -31,9 +31,9 @@ export function Contracts({ contracts }: { contracts: Contract[] }) {
 
   if (contracts.length === 0) {
     return (
-      <div className="mx-auto w-1/2 flex flex-col items-center gap-y-2 mt-20 rounded-lg p-4 border shadow-sm">
-        <div className="rounded-full p-4 bg-indigo-200 w-auto">
-          <AlertCircle className="text-indigo-800" />
+      <div className="mx-auto w-1/2 flex flex-col items-center gap-y-2 mt-20 rounded-lg p-4 border border-border bg-card shadow-card">
+        <div className="rounded-full p-4 bg-warning/10 border border-warning/20 w-auto">
+          <AlertCircle className="text-warning" />
         </div>
         <div className="space-y-0.5 text-center">
           <p className="text-lg font-medium">

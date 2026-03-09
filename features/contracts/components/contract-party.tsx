@@ -8,20 +8,20 @@ interface ContractPartyProps {
 
 export function ContractParty({ party }: ContractPartyProps) {
   return (
-    <div className="rounded-lg shadow-md py-2 px-3">
+    <div className="rounded-lg shadow-card border border-border bg-card py-2 px-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-2">
-          <div className="rounded-lg bg-gradient-to-r from-indigo-700 to-indigo-900 p-2">
-            <Building2 className="text-white" />
+          <div className="rounded-lg bg-primary/10 border border-primary/20 p-2">
+            <Building2 className="text-primary" />
           </div>
           <div className="space-y-0.5">
             <p className="text-lg font-medium">{party.name}</p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               Identifier: {party.identifier}
             </p>
           </div>
         </div>
-        <Badge className="rounded-full bg-indigo-200 text-indigo-700 font-medium text-xs">
+        <Badge variant="default" className="rounded-full font-medium text-xs">
           {party.role}
         </Badge>
       </div>

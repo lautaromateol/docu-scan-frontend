@@ -35,7 +35,7 @@ export function ContractsSearchBar({
   }
 
   return (
-    <div className="w-full grid grid-cols-5 gap-x-6 bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-indigo-100 shadow-sm">
+    <div className="w-full grid grid-cols-5 gap-x-6 bg-card rounded-xl p-4 border border-border shadow-card">
       <div className="col-span-3 flex flex-col gap-y-2">
         <p className="text-sm font-medium">Search Contract</p>
         <Input
@@ -48,7 +48,7 @@ export function ContractsSearchBar({
       <div className="col-span-2 flex flex-col gap-y-2">
         <p className="text-sm font-medium">Filter by status</p>
         <div className="flex items-center gap-x-2">
-          <Funnel className="size-4 text-indigo-800" />
+          <Funnel className="size-4 text-primary" />
           <Select value={filters.status} onValueChange={handleStatusChange}>
             <SelectTrigger className="w-full">
               <SelectValue placeholder="All status..." />

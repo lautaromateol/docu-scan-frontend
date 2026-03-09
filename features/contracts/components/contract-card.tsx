@@ -10,7 +10,6 @@ import {
   User,
   Users,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -28,32 +27,32 @@ export function ContractCard({ contract }: { contract: Contract }) {
   const workspaceId = useWorkspaceId();
 
   return (
-    <div className="p-6 space-y-6 bg-white/70 backdrop-blur-sm rounded-xl border border-indigo-100 shadow-sm">
+    <div className="p-6 space-y-6 bg-card rounded-xl border border-border shadow-card transition-all duration-200 hover:border-primary/20 hover:-translate-y-0.5 hover:shadow-modal">
       <div className="flex flex-col md:flex-row space-y-6 md:items-center md:justify-between">
         <div className="flex flex-col gap-y-2">
           <div className="flex items-center gap-x-2">
-            <div className="rounded-lg p-2 flex items-center justify-center bg-indigo-100">
-              <FileText className="text-indigo-700" />
+            <div className="rounded-lg p-2 flex items-center justify-center bg-primary/10 border border-primary/20">
+              <FileText className="text-primary" />
             </div>
             <p className="text-lg md:text-xl font-semibold capitalize">
               {contract.title.toLowerCase()}
             </p>
           </div>
           <div className="flex items-center mx-auto md:mx-0 gap-x-2">
-            <Badge className="rounded-full bg-indigo-100 text-indigo-700 border-indigo-700 px-2 capitalize text-xs">
+            <Badge variant="default" className="rounded-full px-2 capitalize text-xs">
               {contract.category.toLowerCase()}
             </Badge>
             <Badge
-              className={cn(
-                "rounded-full px-2 capitalize text-xs",
+              variant={
                 contract.status === "DRAFT"
-                  ? "bg-yellow-100 border-yellow-700 text-yellow-700"
+                  ? "warning"
                   : contract.status === "SIGNED"
-                  ? "bg-green-100 border-green-700 text-green-700"
+                  ? "success"
                   : contract.status === "EXPIRED"
-                  ? "bg-red-100 border-red-700 text-green-700"
-                  : "bg-rose-100 border-rose-700 text-rose-700"
-              )}
+                  ? "destructive"
+                  : "secondary"
+              }
+              className="rounded-full px-2 capitalize text-xs"
             >
               {contract.status?.toLowerCase()}
             </Badge>
@@ -69,7 +68,7 @@ export function ContractCard({ contract }: { contract: Contract }) {
           </Button>
         </Link>
       </div>
-      <div className="rounded bg-slate-50 border border-slate-200 shadow p-4">
+      <div className="rounded-lg bg-secondary/50 border border-border p-4">
         <p className="text-sm md:text-base font-light">
           {contract.descriptionSummary}
         </p>
@@ -162,12 +161,12 @@ export function ContractCard({ contract }: { contract: Contract }) {
       </Carousel>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-2">
-          <MapPin className="text-indigo-700" />
-          <p className="text-sm font-semibold text-slate-600">
+          <MapPin className="text-primary size-4" />
+          <p className="text-sm font-medium text-muted-foreground">
             {contract.jurisdiction}
           </p>
         </div>
-        <p className="text-sm">
+        <p className="text-sm text-muted-foreground">
           Created {formatDistanceToNow(contract.createdAt, { addSuffix: true })}
         </p>
       </div>
