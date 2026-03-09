@@ -36,8 +36,8 @@ export function SignUpForm() {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
         {isError ? (
-          <div className="bg-red-100 p-2 border border-destructive rounded-sm shadow">
-            <p className="text-sm font-light text-destructive">{error?.message}</p>
+          <div className="bg-destructive/10 p-3 border border-destructive/30 rounded-lg">
+            <p className="text-sm text-destructive">{error?.message}</p>
           </div>
         ) : null}
         <FormField
@@ -95,7 +95,7 @@ export function SignUpForm() {
         <Button disabled={isRegistering} className="w-full mt-2">
           Sign up for free
         </Button>
-        <p className="text-center text-sm font-light text-slate-700">Already registered? <Link className="text-indigo-700 underline" href="/sign-in">Sign in</Link></p>
+        <p className="text-center text-sm font-light text-muted-foreground">Already registered? <Link className="text-primary underline underline-offset-4 hover:text-primary/80 transition-colors" href="/sign-in">Sign in</Link></p>
       </form>
     </Form>
   );
