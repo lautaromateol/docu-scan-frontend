@@ -1,4 +1,5 @@
 "use client";
+import { AuthLoadingScreen } from "@/features/auth/components/auth-loading-screen";
 import {
   Form,
   FormControl,
@@ -33,6 +34,8 @@ export function SignUpForm() {
   }
 
   return (
+    <>
+      {isRegistering && <AuthLoadingScreen type="sign-up" />}
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
         {isError ? (
@@ -98,5 +101,6 @@ export function SignUpForm() {
         <p className="text-center text-sm font-light text-muted-foreground">Already registered? <Link className="text-primary underline underline-offset-4 hover:text-primary/80 transition-colors" href="/sign-in">Sign in</Link></p>
       </form>
     </Form>
+    </>
   );
 }

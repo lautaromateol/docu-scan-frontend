@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSignIn } from "@/features/auth/hooks/use-sign-in";
 import { SignInUser, SignInUserObject } from "@/features/users/types";
+import { AuthLoadingScreen } from "@/features/auth/components/auth-loading-screen";
 import {
   Form,
   FormControl,
@@ -31,6 +32,8 @@ export function SignInForm() {
   }
 
   return (
+    <>
+      {isSigningIn && <AuthLoadingScreen type="sign-in" />}
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
         {isError ? (
@@ -73,5 +76,6 @@ export function SignInForm() {
         </p>
       </form>
     </Form>
+    </>
   );
 }
